@@ -6,8 +6,57 @@
     --dark: #15233C;
 }
 
+input[value] {
+    font-size: 13px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+/* Style pour les boutons */
+.toggle-btn {
+    /*margin: 15px 25px;*/
+    background: no-repeat center;
+    background-size: contain;
+    padding: 5%;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+/* Style pour le bouton sélectionné */
+.selected {
+    background-color: #6a7c91;
+    color: #fff;
+}
+
+
+#maisonBtn {
+    background-image: url("../img/maison.png");
+    width: 95px;
+}
+
+#appartementBtn {
+    background-image: url("../img/batiment.png");
+    width: 95px;
+}
+
+#proprioBtn {
+    background-image: url("../img/loger.png");
+    width: 95px;
+}
+
+#locataireBtn {
+    background-image: url("../img/loueur.png");
+    width: 95px;
+}
+
+
 .containerdou {
-    width: 1024px;
+    width: 50%;
     max-width: 100%;
     margin: 0 auto;
 }
@@ -20,7 +69,7 @@
     margin-bottom: 24px;
 }
 
-.slider_after:before{
+.slider_after:before, .slider_after1:before {
     font-family: "Poppins", sans-serif;
     color: white;
     text-transform: uppercase;
@@ -28,10 +77,10 @@
     margin: 0px;
     content: "Apres";
     position: absolute;
+    color: #15233c;
     top: 50%;
     right: 8px;
     transform: translateY(-50%);
-    background: rgba(#1414d2);
     padding: 8px 16px;
     border-radius: 8px;
     margin-left: 8px;
@@ -42,15 +91,29 @@
     position: absolute;
     top: 0px;
     left: 0px;
+
     z-index: 1;
     width: 100%;
     height: 100%;
-    background-image: url(../img/tokyo_light_on.jpg);
+    background-image: url(../img/apres3.jpg);
     background-size: cover;
     pointer-events: none;
 }
 
-.slider_before:before{
+.slider_after1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/Apres.jpg);
+    background-size: cover;
+    pointer-events: none;
+}
+
+
+.slider_before:before, .slider_before1:before {
     font-family: "Poppins", sans-serif;
     color: white;
     text-transform: uppercase;
@@ -58,10 +121,10 @@
     margin: 0px;
     content: "Avant";
     position: absolute;
+    color: #15233c;
     top: 50%;
     left: 8px;
     transform: translateY(-50%);
-    background: rgba(#1414d2);
     padding: 8px 16px;
     border-radius: 8px;
     margin-left: 8px;
@@ -71,11 +134,24 @@
 .slider_before {
     position: absolute;
     top: 0px;
-    left:0px;
+    left: 0px;
     z-index: 2;
     width: 50%;
     height: 100%;
-    background-image: url(../img/tokyo_light_off.jpg);
+    background-image: url(../img/avant3.jpeg);
+    background-size: cover;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.slider_before1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    background-image: url(../img/Avant.jpg);
     background-size: cover;
     pointer-events: none;
     overflow: hidden;
@@ -87,8 +163,8 @@
     width: 2px;
     top: 0px;
     bottom: 0px;
-    background: rgba(255,255,255,0.7);
-    box-shadow: 0 5px 10px 0px rgba(0,0,0,0.5);
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.5);
     cursor: ew-resize;
     z-index: 3;
     transform: translateX(-50%);
@@ -103,7 +179,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 .slider_range {
@@ -113,7 +189,7 @@
     bottom: 0px;
     z-index: 3;
     appearance: none;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     outline: none;
     margin: 0px;
 }
@@ -283,7 +359,7 @@
 
 .carousel-control-prev,
 .carousel-control-next {
-    width: 6%;
+    width: 5%;
 }
 
 .carousel-control-prev-icon,

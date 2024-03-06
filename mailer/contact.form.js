@@ -9,6 +9,7 @@
             
             var name = $("input#name").val();
             var email = $("input#email").val();
+            var date = $("input#date").val();
             var subject = $("input#subject").val();
             var message = $("textarea#message").val();
             var mobile = ($("input#mobile").length) ? $("input#mobile").val() : "noMobile";
@@ -23,6 +24,7 @@
                 data: {
                     name: name,
                     email: email,
+                    date: date,
                     mobile: mobile,
                     subject: subject,
                     message: message
@@ -58,7 +60,7 @@
         },
     });
 
-    $('#name, #email, #subject, #message').focus(function () {
+    $('#name, #email, #date, #subject, #message').focus(function () {
         $('#alertMessage').html('');
     });
     

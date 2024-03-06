@@ -97,6 +97,78 @@
         })
     });
 
+    let sliders1 = document.querySelectorAll('.slider');
+
+    sliders1.forEach(function (slider) {
+        let sliderRange = slider.querySelector('.slider_range');
+        let sliderBefore1 = slider.querySelector('.slider_before1');
+        let sliderSeparator = slider.querySelector('.slider_separator');
+
+        function uptdateSliderPosition() {
+            sliderBefore1.style = `width:${sliderRange.value}%`;
+            sliderSeparator.style = `left:${sliderRange.value}%`;
+        }
+
+        sliderRange.addEventListener('input', uptdateSliderPosition);
+
+        let isDragging = false;
+
+        sliderSeparator.addEventListener('mousedown', function () {
+            isDragging = true;
+        })
+
+        document.addEventListener('mouseup', function () {
+            isDragging = false;
+        })
+
+        document.addEventListener('mousemove', function (e) {
+            if (isDragging) {
+                let sliderRect = slider.getBoundingClientRect();
+                let newWidth = (e.clientX - sliderRect.left) /
+                    sliderRect.width * 100;
+                sliderRange.value = newWidth;
+                uptdateSliderPosition();
+            }
+        })
+    });
+
+    // Récupérer les éléments bouton
+    const maisonBtn = document.getElementById('maisonBtn');
+    const appartementBtn = document.getElementById('appartementBtn');
+    const proprioBtn = document.getElementById('proprioBtn');
+    const locataireBtn = document.getElementById('locataireBtn');
+    const submitButton = document.getElementById('sendMessageButton');
+
+// Ajouter des écouteurs d'événements aux boutons
+    maisonBtn.addEventListener('click', () => {
+        maisonBtn.classList.add('selected');
+        appartementBtn.classList.remove('selected');
+        submitButton.disabled = false;
+    });
+
+    appartementBtn.addEventListener('click', () => {
+        appartementBtn.classList.add('selected');
+        maisonBtn.classList.remove('selected');
+        submitButton.disabled = false;
+    });
+
+    proprioBtn.addEventListener('click', () => {
+        proprioBtn.classList.add('selected');
+        locataireBtn.classList.remove('selected');
+        submitButton.disabled = false;
+    });
+    
+    locataireBtn.addEventListener('click', () => {
+        locataireBtn.classList.add('selected');
+        proprioBtn.classList.remove('selected');
+        submitButton.disabled = false;
+    });
+
+    function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+    }
+
+
 
 })(jQuery);
 
