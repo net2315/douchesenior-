@@ -100,10 +100,10 @@
 
 <!-- Navbar Start -->
 <nav
-        class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5"
+        class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-0"
 >
-    <a href="index.html" class="navbar-brand d-flex align-items-center">
-        <img class="img-fluid me-3" src="img/icon/logo.png" alt=""/>
+    <a href="index.html" class="navbar-brand d-flex align-items-center py-0">
+        <img class="img-fluid me-0 w-75 h-75" src="img/icon/logo.png" alt=""/>
     </a>
     <button
             type="button"
@@ -453,14 +453,37 @@
                         <div id="alertMessage"></div>
                         <form id="contactForm" novalidate="novalidate">
                             <form id="myForm2">
-                                <input class="toggle-btn" data-value="proprietaire" id="proprioBtn" type="button" value="Proprio">
-                                <input class="toggle-btn" data-value="locataire" id="locataireBtn" type="button" value="Locataire">
+                                <div>
+                                    <div>
+                                        <input class="toggle-btn" data-value="proprietaire" id="proprioBtn"
+                                               type="button">
+                                    </div>
+                                    <div class="text-center">Propriétaire</div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <input class="toggle-btn" data-value="locataire" id="locataireBtn"
+                                               type="button">
+                                    </div>
+                                    <div class="text-center">Locataire</div>
+                                </div>
                             </form>
                             <form id="myForm">
-                                <input class="toggle-btn" data-value="maison" id="maisonBtn" required="required"
-                                       type="button" value="Maison">
-                                <input class="toggle-btn" data-value="appartement" id="appartementBtn" required="required"
-                                       type="button" value="Apparte">
+                                <div>
+                                    <div>
+                                        <input class="toggle-btn" data-value="maison" id="maisonBtn" required="required"
+                                               type="button">
+                                    </div>
+                                    <div class="text-center">Maison</div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <input class="toggle-btn" data-value="appartement" id="appartementBtn"
+                                               required="required"
+                                               type="button">
+                                    </div>
+                                    <div class="text-center">Appartement</div>
+                                </div>
                             </form>
                             <div class="row">
                                 <div class="col-sm-6 control-group">
