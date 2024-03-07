@@ -6,9 +6,11 @@
     --dark: #15233C;
 }
 
-input[value] {
-    font-size: 13px;
-    text-align: center;
+
+#contactForm .help-block ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 form {
@@ -303,7 +305,7 @@ form {
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free", serif;
     font-weight: 900;
     vertical-align: middle;
     margin-left: 8px;
@@ -633,7 +635,7 @@ form {
 .footer .btn.btn-link::before {
     position: relative;
     content: "\f105";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free", serif;
     font-weight: 900;
     color: #A7A8B4;
     margin-right: 10px;
