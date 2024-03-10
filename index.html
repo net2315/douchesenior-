@@ -39,6 +39,15 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet"/>
+
+    <style type="text/css">
+        #contactForm .help-block ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -439,105 +448,93 @@
 
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 <div class="bg-white rounded px-5 py-3">
-                    <!--                    form-->
+                    <!--form-->
                     <div class="row g-3">
                         <!-- Contact Form Start -->
+                        <p>Quel est votre statut? <span class="obligatoire">*</span></p>
+                        <form id="myForm2">
+                            <div>
+                                <div>
+                                    <input class="toggle-btn" data-value="proprietaire" id="proprioBtn"
+                                           type="button">
+                                </div>
+                                <div class="text-center">Propriétaire</div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input class="toggle-btn" data-value="locataire" id="locataireBtn"
+                                           type="button">
+                                </div>
+                                <div class="text-center">Locataire</div>
+                            </div>
+                        </form>
+                        </form>
+                        <p>Quel est votre statut? <span class="obligatoire">*</span></p>
+                        <form id="myForm">
+                            <div>
+                                <div>
+                                    <input class="toggle-btn" data-value="maison" id="maisonBtn"
+                                           required="required"
+                                           type="button">
+                                </div>
+                                <div class="text-center">Maison</div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input class="toggle-btn" data-value="appartement" id="appartementBtn"
+                                           required="required"
+                                           type="button">
+                                </div>
+                                <div class="text-center">Appartement</div>
+                            </div>
+                        </form>
+                        </form>
+                    </div>
+                    <div class="contact-form">
                         <div id="alertMessage"></div>
-                        <div id="contactForm">
-                            <p>Quel est votre statut?</p>
-                            <form novalidate="novalidate">
-                                <form id="myForm2">
-                                    <div>
-                                        <div>
-                                            <input class="toggle-btn" data-value="proprietaire" id="proprioBtn"
-                                                   type="button">
-                                        </div>
-                                        <div class="text-center">Propriétaire</div>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <input class="toggle-btn" data-value="locataire" id="locataireBtn"
-                                                   type="button">
-                                        </div>
-                                        <div class="text-center">Locataire</div>
-                                    </div>
-                                </form>
-                            </form>
-                            <p>Quel est votre statut?</p>
-
-                            <form novalidate="novalidate">
-
-                                <form id="myForm">
-                                    <div>
-                                        <div>
-                                            <input class="toggle-btn" data-value="maison" id="maisonBtn"
-                                                   required="required"
-                                                   type="button">
-                                        </div>
-                                        <div class="text-center">Maison</div>
-                                    </div>
-                                    <div>
-                                        <div>
-                                            <input class="toggle-btn" data-value="appartement" id="appartementBtn"
-                                                   required="required"
-                                                   type="button">
-                                        </div>
-                                        <div class="text-center">Appartement</div>
-                                    </div>
-                                </form>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 control-group">
-                                <input type="text" class="form-control py-2" id="name"
-                                       placeholder="Your Name"
-                                       required="required"
-                                       data-validation-required-message="Please enter your name"/>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="col-sm-6 control-group">
-                                <input type="email" class="form-control py-2" id="email"
-                                       placeholder="Your Email"
-                                       required="required"
-                                       data-validation-required-message="Please enter your email"/>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="col-sm-6 control-group">
-                                <input type="text" class="form-control py-2" id="mobile"
-                                       placeholder="Mobile"
-                                       required="required"
-                                       data-validation-required-message="Please enter your mobile number"
-                                       pattern="^(?![-. ])[\d().+\- ]{6,14}\d$"
-                                       data-validation-pattern-message="Not a valid mobile number"/>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="col-sm-6 control-group">
-                                <input type="date" class="form-control py-2" id="date"
-                                       placeholder="Date"
-                                       required="required"
-                                       data-validation-required-message="Please enter a date"/>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="col-12 control-group">
+                        <form id="contactForm" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-sm-6 control-group">
+                                    <input type="text" class="form-control py-2" id="name" placeholder="Your Name"
+                                           required="required"
+                                           data-validation-required-message="Please enter your name"/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 control-group">
+                                    <input type="email" class="form-control py-2" id="email" placeholder="Your Email"
+                                           required="required"
+                                           data-validation-required-message="Please enter your email"/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 control-group">
+                                    <input type="text" class="form-control py-2" id="mobile" placeholder="Mobile"
+                                           required="required"
+                                           data-validation-required-message="Please enter your mobile number"
+                                           pattern="^(?![-. ])[\d().+\- ]{6,14}\d$"
+                                           data-validation-pattern-message="Not a valid mobile number"/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-sm-6 control-group">
+                                    <input type="text" class="form-control py-2" id="subject" placeholder="Subject"
+                                           required="required"
+                                           data-validation-required-message="Please enter a subject"/>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-12 control-group">
                                     <textarea class="form-control" rows="4" id="message" placeholder="Message"
                                               required="required"
                                               data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-2" type="submit" id="sendMessageButton">
+                                        <span>Send Message</span>
+                                        <div class="d-none spinner-border spinner-border-sm text-light ms-3"
+                                             role="status"></div>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <button class="g-recaptcha btn btn-primary w-100 py-2" type="submit"
-                                        id="sendMessageButton" data-sitekey="reCAPTCHA_site_key"
-                                        data-callback='onSubmit'
-                                        data-action='submit'>
-                                    <span>Send Message</span>
-                                    <div class="d-none spinner-border spinner-border-sm text-light ms-3"
-                                         role="status"></div>
-                                </button>
-                            </div>
-                        </div>
                         </form>
-                        <p class="text-center mt-3 mb-0"></a>
-                        </p>
                     </div>
                     <!-- Contact Form End -->
                 </div>
@@ -718,8 +715,8 @@
 ></a>
 
 <!-- JavaScript Libraries -->
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="lib/wow/wow.min.js"></script>
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/waypoints/waypoints.min.js"></script>

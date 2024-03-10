@@ -13,6 +13,11 @@
     list-style-type: none;
 }
 
+.obligatoire {
+    color: red;
+}
+
+
 form {
     display: flex;
     justify-content: space-evenly;
