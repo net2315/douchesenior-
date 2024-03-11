@@ -19,10 +19,10 @@ $plainTextBody = "Name: $name\n";
 $plainTextBody .= "Email: $email\n";
 ($mobile !== "noMobile") ? $plainTextBody .= "Mobile: $mobile\n" : "";
 $plainTextBody .= "Subject: $subject\n";
-$plainTextBody .= $message;
+$plainTextBody .= "Message $message\n";
 
 // Recipient name. Change this name to your
-$recipientName = "Netanel Serfaty";
+$recipientName = "Jhon fire";
 
 // Recipient email. Change this email to your
 $recipientEmail = "wiipassionnet@gmail.com";
@@ -80,4 +80,3 @@ try {
     echo json_encode(array('status' => 'error', 'message' => 'Email could not be sent. ' . $mail->ErrorInfo));
 }
 
-?>
