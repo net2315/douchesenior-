@@ -6,6 +6,7 @@ $email = $_POST['email'];
 $mobile = $_POST['mobile'];
 $subject = $_POST['subject'];
 $message = $_POST['message'];
+$status = $_POST['status'];
 
 // HTML email body
 $htmlBody = "<p>Name: $name</p>";
@@ -13,6 +14,7 @@ $htmlBody .= "<p>Email: $email</p>";
 ($mobile !== "noMobile") ? $htmlBody .= "<p>Mobile: $mobile</p>" : "";
 $htmlBody .= "<p>Subject: $subject</p>";
 $htmlBody .= "<p>Message: $message</p>";
+$htmlBody .= "<p>Status: $status</p>";
 
 // Plain text email body
 $plainTextBody = "Name: $name\n";
@@ -20,6 +22,8 @@ $plainTextBody .= "Email: $email\n";
 ($mobile !== "noMobile") ? $plainTextBody .= "Mobile: $mobile\n" : "";
 $plainTextBody .= "Subject: $subject\n";
 $plainTextBody .= $message;
+$plainTextBody .= "Status: $status\n";
+
 
 // Recipient name. Change this name to your
 $recipientName = "Netanel Serfaty";
@@ -40,7 +44,7 @@ $mail = new PHPMailer(true);
 
 // Set mailer to use SMTP or PHP's mail() function
 // If you use SMTP, it will be "true". Otherwise, it will be "false"
-$useSMTP = false;
+$useSMTP = true;
 
 if ($useSMTP) {
     // Server settings for SMTP
@@ -48,7 +52,7 @@ if ($useSMTP) {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'wiipassionnet@gmail.com';
-    $mail->Password = 'secret';
+    $mail->Password = '';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 } else {

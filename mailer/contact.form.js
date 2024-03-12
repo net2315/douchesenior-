@@ -6,12 +6,15 @@
         submitError: function ($form, event, errors) {},
         submitSuccess: function ($form, event) {
             event.preventDefault();
+
             
             var name = $("input#name").val();
             var email = $("input#email").val();
             var subject = $("input#subject").val();
             var message = $("textarea#message").val();
             var mobile = ($("input#mobile").length) ? $("input#mobile").val() : "noMobile";
+            var status = $("input#userStatus").val(status);
+            
 
             $("#sendMessageButton").prop("disabled", true);
             $("#sendMessageButton span").text("Sending...");
@@ -25,7 +28,8 @@
                     email: email,
                     mobile: mobile,
                     subject: subject,
-                    message: message
+                    message: message,
+                    status : status
                 },
                 dataType: "json",
                 cache: false,
@@ -58,7 +62,7 @@
         },
     });
 
-    $('#name, #email, #subject, #message').focus(function () {
+    $('#name, #email, #subject, #message, #status').focus(function () {
         $('#alertMessage').html('');
     });
     
