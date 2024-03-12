@@ -19,10 +19,10 @@ $plainTextBody = "Name: $name\n";
 $plainTextBody .= "Email: $email\n";
 ($mobile !== "noMobile") ? $plainTextBody .= "Mobile: $mobile\n" : "";
 $plainTextBody .= "Subject: $subject\n";
-$plainTextBody .= "Message $message\n";
+$plainTextBody .= $message;
 
 // Recipient name. Change this name to your
-$recipientName = "Jhon fire";
+$recipientName = "Netanel Serfaty";
 
 // Recipient email. Change this email to your
 $recipientEmail = "wiipassionnet@gmail.com";
@@ -45,9 +45,9 @@ $useSMTP = false;
 if ($useSMTP) {
     // Server settings for SMTP
     $mail->isSMTP();
-    $mail->Host = 'smtp.example.com';
+    $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'user@example.com';
+    $mail->Username = 'wiipassionnet@gmail.com';
     $mail->Password = 'secret';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
@@ -80,3 +80,4 @@ try {
     echo json_encode(array('status' => 'error', 'message' => 'Email could not be sent. ' . $mail->ErrorInfo));
 }
 
+?>

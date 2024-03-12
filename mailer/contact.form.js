@@ -13,19 +13,13 @@
             var message = $("textarea#message").val();
             var mobile = ($("input#mobile").length) ? $("input#mobile").val() : "noMobile";
 
-            name = JSON.parse(name);
-            email = JSON.parse(email);
-            subject = JSON.parse(subject);
-            message = JSON.parse(message);
-            mobile = JSON.parse(mobile);
-
             $("#sendMessageButton").prop("disabled", true);
             $("#sendMessageButton span").text("Sending...");
             $("#sendMessageButton div").removeClass("d-none");
 
             $.ajax({
                 url: "mailer/contact.form.php",
-                type: "GET",
+                type: "POST",
                 data: {
                     name: name,
                     email: email,
@@ -33,7 +27,7 @@
                     subject: subject,
                     message: message
                 },
-                dataType: 'json',
+                dataType: "json",
                 cache: false,
                 success: function (response) {
                     if (response.status === 'success') {
@@ -50,7 +44,6 @@
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                    console.log(errorThrown);
                     $('#alertMessage').html("<div class='alert alert-danger alert-dismissible'>");
                     $('#alertMessage > .alert-danger').html("<button type='button' class='btn-close' data-bs-dismiss='alert' aria-hidden='true'>").append("</button>");
                     $('#alertMessage > .alert-danger').append("<strong>Ajax Error: " + errorThrown + "</strong>");

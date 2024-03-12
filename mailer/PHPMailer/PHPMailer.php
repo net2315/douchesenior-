@@ -4142,7 +4142,7 @@ class PHPMailer
             return filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
         }
         //Is it a syntactically valid hostname (when embeded in a URL)?
-        return filter_var('https://' . $host, FILTER_VALIDATE_URL) !== false;
+        return filter_var('http://' . $host, FILTER_VALIDATE_URL) !== false;
     }
 
     /**
