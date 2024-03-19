@@ -159,7 +159,7 @@ form {
     top: 0px;
     left: 0px;
     z-index: 2;
-    width: 50%;
+    width: 70%;
     height: 100%;
     background-image: url(../img/Avant.jpg);
     background-size: cover;
@@ -169,7 +169,7 @@ form {
 
 .slider_separator {
     position: absolute;
-    left: 50%;
+    left: 70%;
     width: 2px;
     top: 0px;
     bottom: 0px;
