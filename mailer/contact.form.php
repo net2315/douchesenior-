@@ -8,17 +8,9 @@ $mobile = $_POST['mobile'];
 $date = $_POST['date'];
 $message = $_POST['message'];
 
-if(isset($_POST['statut'])) {
-    $statut = $_POST['statut'];
-} else {
-    $statut = 'non ajouter'; // ou gérer l'erreur comme approprié
-}
+$statut = isset($_POST['statut']) ? $_POST['statut'] : 'Non spécifié';
+$logement = isset($_POST['logement']) ? $_POST['logement'] : 'Non spécifié';
 
-if(isset($_POST['logement'])) {
-    $logement = $_POST['logement'];
-} else {
-    $logement = 'non ajouter'; // ou gérer l'erreur comme approprié
-}
 $address = strip_tags(htmlspecialchars($_POST['address']));
 
 // HTML email body
@@ -26,17 +18,10 @@ $htmlBody = "<p>Name: $name</p>";
 $htmlBody .= "<p>Email: $email</p>";
 ($mobile !== "noMobile") ? $htmlBody .= "<p>Mobile: $mobile</p>" : "";
 $htmlBody .= "<p>Date: $date</p>";
-$htmlBody .= "<p>Message: $message</p>";
 $htmlBody .= "<p>Statut: $statut</p>";
 $htmlBody .= "<p>Logement: $logement</p>";
 $htmlBody .= "<p>Address: $address</p>";
-
-
-// // Prepare the email headers
-// $headers  = 'MIME-Version: 1.0' . "\r\n";
-// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-// // Send the email
-// mail('wiipassionnet@gmail.com', 'Mailer Form Data', $htmlBody, $headers);
+$htmlBody .= "<p>Message: $message</p>";
 
 
 // Plain text email body
@@ -44,10 +29,10 @@ $plainTextBody = "Name: $name\n";
 $plainTextBody .= "Email: $email\n";
 ($mobile !== "noMobile") ? $plainTextBody .= "Mobile: $mobile\n" : "";
 $plainTextBody .= "Date: $date\n";
-$plainTextBody .= $message;
 $plainTextBody .= "Statut: $statut\n";
 $plainTextBody .= "Logement: $logement\n";
 $plainTextBody .= "Adresse: $address\n";
+$plainTextBody .= $message;
 
 
 // Recipient name. Change this name to your
