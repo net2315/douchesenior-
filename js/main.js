@@ -133,37 +133,6 @@
         })
     });
 
-//     // Récupérer les éléments bouton
-//     const maisonBtn = document.getElementById('maisonBtn');
-//     const appartementBtn = document.getElementById('appartementBtn');
-//     const proprioBtn = document.getElementById('proprioBtn');
-//     const locataireBtn = document.getElementById('locataireBtn');
-//     const submitButton = document.getElementById('sendMessageButton');
-//
-// // Ajouter des écouteurs d'événements aux boutons
-//     maisonBtn.addEventListener('click', () => {
-//         maisonBtn.classList.add('selected');
-//         appartementBtn.classList.remove('selected');
-//         submitButton.disabled = false;
-//     });
-//
-//     appartementBtn.addEventListener('click', () => {
-//         appartementBtn.classList.add('selected');
-//         maisonBtn.classList.remove('selected');
-//         submitButton.disabled = false;
-//     });
-//
-//     proprioBtn.addEventListener('click', () => {
-//         proprioBtn.classList.add('selected');
-//         locataireBtn.classList.remove('selected');
-//         submitButton.disabled = false;
-//     });
-//    
-//     locataireBtn.addEventListener('click', () => {
-//         locataireBtn.classList.add('selected');
-//         proprioBtn.classList.remove('selected');
-//         submitButton.disabled = false;
-//     });
 
     function onSubmit(token) {
         document.getElementById("demo-form").submit();
