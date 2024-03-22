@@ -49,6 +49,15 @@
 </head>
 
 <body>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+
 <!-- Spinner Start -->
 <div
         id="spinner"
@@ -82,7 +91,7 @@
             <a href="contact.html" class="nav-item nav-link">Contactez-nous</a>
         </div>
     </div>
-    <a href="#monForm" class="btn btn-primary px-3 d-none d-lg-block" onclick="scrollToSection()"
+    <a href="#monForm" class="btn btn-primary px-3 d-none d-lg-block"
     >Prendre RDV</a
     >
 </nav>
@@ -93,7 +102,7 @@
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100 opacity" src="img/carousel-3.jpeg" alt="Image"/>
+                <img class="w-100 opacity" src="img/carousel6.jpeg" alt="Image"/>
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row">
@@ -107,7 +116,7 @@
                                     professionnalisme, garantissant ainsi une sécurité
                                     maximale pour les seniors
                                 </p>
-                                <a href="contact.html" class="btn btn-primary py-3 px-5"
+                                <a href="#monForm" class="btn btn-primary py-3 px-5"
                                 >Contactez-nous</a
                                 >
                             </div>
@@ -116,7 +125,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100 opacity" src="img/carousel-4.jpeg" alt="Image"/>
+                <img class="w-100 opacity" src="img/carousel5.jpg" alt="Image"/>
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row">
@@ -132,7 +141,7 @@
                                     préférences, assurant ainsi votre confort et votre
                                     tranquillité d'esprit
                                 </p>
-                                <a href="contact.html" class="btn btn-primary py-3 px-5"
+                                <a href="#monForm" class="btn btn-primary py-3 px-5"
                                 >Contactez-nous</a
                                 >
                             </div>
@@ -174,7 +183,7 @@
                 >
                     <img
                             class="position-absolute w-100 h-100"
-                            src="img/about-2.jpg"
+                            src="img/about-2.jpeg"
                             alt=""
                             style="object-fit: cover"
                     />
@@ -241,24 +250,6 @@
 </div>
 <!-- About End -->
 
-<!--&lt;!&ndash; Image1 Before After Start&ndash;&gt;-->
-<!--<div class="containerdou">-->
-<!--    <div class="slider">-->
-<!--        <div class="slider_before"></div>-->
-<!--        <div class="slider_separator"></div>-->
-<!--        <div class="slider_after"></div>-->
-<!--        <label>-->
-<!--            <input-->
-<!--                    class="slider_range"-->
-<!--                    type="range"-->
-<!--                    min="0"-->
-<!--                    max="100"-->
-<!--                    value="50"-->
-<!--            />-->
-<!--        </label>-->
-<!--    </div>-->
-<!--</div>-->
-<!--&lt;!&ndash; Image1 Before After Start&ndash;&gt;-->
 
 <!-- Image2 Before After Start-->
 <div class="containerdou">
@@ -360,7 +351,7 @@
                 >
                     <img
                             class="position-absolute w-100 h-100"
-                            src="img/content.jpeg"
+                            src="img/content.jpg"
                             alt=""
                             style="object-fit: cover"
                     />
@@ -407,151 +398,140 @@
                 </div>
             </div>
 
+            <!-- Contact Form Start -->
+
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 <div class="bg-white rounded px-5 py-3">
-                    <!--form-->
                     <div class="row g-3">
-                        <!--                        <form id="contactForm" novalidate="novalidate">-->
-                        <!-- Contact Form Start -->
-                        <p>
-                            Quel est votre statut? <span class="obligatoire">*</span>
-                        </p>
-                        <form id="myForm2">
-                            <div>
-                                <div>
+                        <div class="contact-form">
+                            <div id="alertMessage"></div>
+                            <form id="contactForm" novalidate="novalidate" method="post">
+                                <p>
+                                    Quel est votre statut? <span class="obligatoire">*</span>
+                                </p>
+                                <div><label for="proprioBtn">
                                     <input
-                                            class="toggle-btn"
-                                            data-value="proprietaire"
+                                            value="Proprietaire"
                                             id="proprioBtn"
-                                            type="button"
-                                            onclick="updateStatus('proprietaire')"
+                                            type="radio"
+                                            name="statut"
                                     />
+                                    Proprietaire</label>
                                 </div>
-                                <div class="text-center">Propriétaire</div>
-                            </div>
-                            <div>
-                                <div>
+                                <div><label for="locataireBtn">
                                     <input
-                                            class="toggle-btn"
-                                            data-value="locataire"
+                                            value="Locataire"
                                             id="locataireBtn"
-                                            type="button"
-                                            onclick="updateStatus('locataire')"
+                                            type="radio"
+                                            name="statut"
                                     />
+                                    Locataire</label>
                                 </div>
-                                <div class="text-center">Locataire</div>
-                            </div>
-                        </form>
-                        <p>
-                            Quel est votre type de logement? <span class="obligatoire">*</span>
-                        </p>
-                        <form id="myForm">
-                            <div>
-                                <div>
+                                <br>
+                                <p>
+                                    Quel est votre type de logement? <span class="obligatoire">*</span>
+                                </p>
+                                <div><label for="maisonBtn">
                                     <input
-                                            class="toggle-btn"
-                                            data-value="maison"
+                                            value="Maison"
                                             id="maisonBtn"
-                                            required="required"
-                                            type="button"
-                                            onclick="updateStatus('maison')"
+                                            type="radio"
+                                            name="logement"
                                     />
+                                    Maison</label>
                                 </div>
-                                <div class="text-center">Maison</div>
-                            </div>
-                            <div>
-                                <div>
+                                <div><label for="appartementBtn">
                                     <input
-                                            class="toggle-btn"
-                                            data-value="appartement"
+                                            value="Appartement"
                                             id="appartementBtn"
-                                            required="required"
-                                            type="button"
-                                            onclick="updateStatus('appartement')"
+                                            type="radio"
+                                            name="logement"
                                     />
+                                    Appartement</label>
                                 </div>
-                                <div class="text-center">Appartement</div>
-                            </div>
-                        </form>
-                        <!--                            <input type="hidden" id="userStatus" name="status" value="">-->
-                        <!--                        </form>-->
-                    </div>
-                    <div class="contact-form">
-                        <div id="alertMessage"></div>
-                        <form id="contactForm" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-sm-6 control-group">
-                                    <input
-                                            type="text"
-                                            class="form-control py-2"
-                                            id="name"
-                                            placeholder="Nom et Prénom"
-                                            required="required"
-                                            data-validation-required-message="Please enter your name"
-                                    />
-                                    <p class="help-block text-danger"></p>
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-6 control-group">
+                                        <input
+                                                type="text"
+                                                class="form-control py-2"
+                                                id="name"
+                                                placeholder="Nom et Prénom"
+                                                required="required"
+                                                data-validation-required-message="Entrez votre nom et prénom"
+                                        />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="col-sm-6 control-group">
+                                        <input
+                                                type="email"
+                                                class="form-control py-2"
+                                                id="email"
+                                                placeholder="Email"
+                                                required="required"
+                                                data-validation-required-message="Entrez votre mail"
+                                        />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="col-sm-6 control-group">
+                                        <input
+                                                type="text"
+                                                class="form-control py-2"
+                                                id="mobile"
+                                                placeholder="Mobile"
+                                                required="required"
+                                                data-validation-required-message="Entrez votre numéro de téléphone"
+                                                pattern="^(?![-. ])[\d().+\- ]{6,14}\d$"
+                                                data-validation-pattern-message="Numéro non valide !"
+                                        />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="col-sm-6 control-group">
+                                        <input
+                                                type="date"
+                                                class="form-control py-2"
+                                                id="date"
+                                                placeholder="Date"
+                                                required="required"
+                                                data-validation-required-message="Entrez votre date de naissance"
+                                        />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="col-12 control-group">
+                                        <div class="col-12 control-group">
+                                            <input type="text" class="form-control py-2" id="address" name="address"
+                                                   placeholder="Adresse complète" required="required"
+                                                   data-validation-required-message="Entrez votre adresse complète"/>
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+
+                                        <textarea
+                                                class="form-control"
+                                                rows="4"
+                                                id="message"
+                                                placeholder="Message"
+                                                required="required"
+                                                data-validation-required-message="Please enter your message"
+                                        ></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <button
+                                                class="btn btn-primary w-100 py-2"
+                                                type="submit"
+                                                id="sendMessageButton"
+                                        >
+                                            <span>Envoyer</span>
+                                            <div
+                                                    class="d-none spinner-border spinner-border-sm text-light ms-3"
+                                                    role="status"
+                                            ></div>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6 control-group">
-                                    <input
-                                            type="email"
-                                            class="form-control py-2"
-                                            id="email"
-                                            placeholder="Email"
-                                            required="required"
-                                            data-validation-required-message="Please enter your email"
-                                    />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-6 control-group">
-                                    <input
-                                            type="text"
-                                            class="form-control py-2"
-                                            id="mobile"
-                                            placeholder="Mobile"
-                                            required="required"
-                                            data-validation-required-message="Please enter your mobile number"
-                                            pattern="^(?![-. ])[\d().+\- ]{6,14}\d$"
-                                            data-validation-pattern-message="Not a valid mobile number"
-                                    />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-sm-6 control-group">
-                                    <input
-                                            type="text"
-                                            class="form-control py-2"
-                                            id="subject"
-                                            placeholder="Subject"
-                                            required="required"
-                                            data-validation-required-message="Please enter a subject"
-                                    />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-12 control-group">
-                      <textarea
-                              class="form-control"
-                              rows="4"
-                              id="message"
-                              placeholder="Message"
-                              required="required"
-                              data-validation-required-message="Please enter your message"
-                      ></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="col-12">
-                                    <button
-                                            class="btn btn-primary w-100 py-2"
-                                            type="submit"
-                                            id="sendMessageButton"
-                                    >
-                                        <span>Send Message</span>
-                                        <div
-                                                class="d-none spinner-border spinner-border-sm text-light ms-3"
-                                                role="status"
-                                        ></div>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                     <!-- Contact Form End -->
                 </div>
@@ -597,7 +577,8 @@
                                 alt=""
                         />
                         <p class="fs-5">
-                            Je suis extrêmement satisfait des services de Douchesenior+. Leur équipe a été très patiente
+                            Je suis extrêmement satisfaite des services de Douchesenior+. Leur équipe a été très
+                            patiente
                             et compréhensive de mes besoins spécifiques en tant que personne handicapée. Grâce à eux,
                             j'ai maintenant une salle de bains entièrement fonctionnelle qui me permet de vivre de
                             manière plus indépendante et confortable. Je les recommande vivement à quiconque a besoin
@@ -617,11 +598,17 @@
                                 alt=""
                         />
                         <p class="fs-5">
-                            Dolores sed duo clita tempor justo dolor et stet lorem kasd
-                            labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy
-                            et labore et tempor diam tempor erat.
+                            Je suis impressionné par la qualité du travail et le niveau de service que j'ai reçu lors de
+                            l'installation de ma nouvelle douche. Maintenant, je me sens beaucoup plus confiant et
+                            indépendant dans ma propre maison. Je recommande vivement cette solution à tous ceux qui en
+                            ont besoin.
                         </p>
                         <h5>Tanguy</h5>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
                     </div>
                     <div class="testimonial-item text-center">
                         <img
@@ -630,12 +617,17 @@
                                 alt=""
                         />
                         <p class="fs-5">
-                            Dolores sed duo clita tempor justo dolor et stet lorem kasd
-                            labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy
-                            et labore et tempor diam tempor erat.
+                            Mes parents ne tarissent pas d'éloges sur le travail effectué dans leur salle de bains. Cela
+                            a vraiment facilité leur vie quotidienne. Ils se sentent mieux soutenus et plus autonomes,
+                            et cela me donne une tranquillité d'esprit en sachant qu'ils sont en sécurité.
                         </p>
                         <h5>Franck</h5>
-                        <span>Charpentier</span>
+                        <span>Charpentier</span><br>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
                     </div>
                 </div>
             </div>
@@ -724,14 +716,6 @@
 ><i class="bi bi-arrow-up"></i
 ></a>
 
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="lib/wow/wow.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/counterup/counterup.min.js"></script>
 
 <!-- Contact Form Javascript -->
 <script src="mailer/validation.form.js"></script>

@@ -1,35 +1,60 @@
 <?php
+error_log(print_r($_POST, true));
 
 // Mailer form data
 $name = $_POST['name'];
 $email = $_POST['email'];
 $mobile = $_POST['mobile'];
-$subject = $_POST['subject'];
+$date = $_POST['date'];
 $message = $_POST['message'];
-$status = $_POST['status'];
+
+if(isset($_POST['statut'])) {
+    $statut = $_POST['statut'];
+} else {
+    $statut = 'non ajouter'; // ou gérer l'erreur comme approprié
+}
+
+if(isset($_POST['logement'])) {
+    $logement = $_POST['logement'];
+} else {
+    $logement = 'non ajouter'; // ou gérer l'erreur comme approprié
+}
+$address = strip_tags(htmlspecialchars($_POST['address']));
 
 // HTML email body
 $htmlBody = "<p>Name: $name</p>";
 $htmlBody .= "<p>Email: $email</p>";
 ($mobile !== "noMobile") ? $htmlBody .= "<p>Mobile: $mobile</p>" : "";
-$htmlBody .= "<p>Subject: $subject</p>";
+$htmlBody .= "<p>Date: $date</p>";
 $htmlBody .= "<p>Message: $message</p>";
-$htmlBody .= "<p>Status: $status</p>";
+$htmlBody .= "<p>Statut: $statut</p>";
+$htmlBody .= "<p>Logement: $logement</p>";
+$htmlBody .= "<p>Address: $address</p>";
+
+
+// // Prepare the email headers
+// $headers  = 'MIME-Version: 1.0' . "\r\n";
+// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+// // Send the email
+// mail('wiipassionnet@gmail.com', 'Mailer Form Data', $htmlBody, $headers);
+
 
 // Plain text email body
 $plainTextBody = "Name: $name\n";
 $plainTextBody .= "Email: $email\n";
 ($mobile !== "noMobile") ? $plainTextBody .= "Mobile: $mobile\n" : "";
-$plainTextBody .= "Subject: $subject\n";
+$plainTextBody .= "Date: $date\n";
 $plainTextBody .= $message;
-$plainTextBody .= "Status: $status\n";
+$plainTextBody .= "Statut: $statut\n";
+$plainTextBody .= "Logement: $logement\n";
+$plainTextBody .= "Adresse: $address\n";
 
 
 // Recipient name. Change this name to your
-$recipientName = "Netanel Serfaty";
+$recipientName = "Joe User";
 
 // Recipient email. Change this email to your
-$recipientEmail = "wiipassionnet@gmail.com";
+$recipientEmail = "joe@example.com";
 
 // Initiate PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
@@ -49,10 +74,10 @@ $useSMTP = true;
 if ($useSMTP) {
     // Server settings for SMTP
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = 'smtp.ethereal.email';
     $mail->SMTPAuth = true;
-    $mail->Username = 'wiipassionnet@gmail.com';
-    $mail->Password = '';
+    $mail->Username = 'donna.wolf@ethereal.email';
+    $mail->Password = 'd5U8CSAWVKUVuZx9hB';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 } else {
@@ -69,7 +94,6 @@ $mail->addReplyTo($email, $name);
 
 // Mail content
 $mail->isHTML(true);
-$mail->Subject = $subject;
 $mail->Body = $htmlBody;
 $mail->AltBody = $plainTextBody;
 
@@ -78,10 +102,10 @@ try {
     $mail->send();
     
     // Passing success message with "success" status
-    echo json_encode(array('status' => 'success', 'message' => 'Email has been sent successfully!'));
+    echo json_encode(array('status' => 'success', 'message' => "Vos informations on été envoyées avec succès !"));
 } catch (Exception $e) {
     // Passing error message with "error" status
-    echo json_encode(array('status' => 'error', 'message' => 'Email could not be sent. ' . $mail->ErrorInfo));
+    echo json_encode(array('status' => 'error', 'message' => "L'email n'a pas été envoyer" . $mail->ErrorInfo));
 }
 
 ?>

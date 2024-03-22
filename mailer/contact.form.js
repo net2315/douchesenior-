@@ -6,15 +6,15 @@
         submitError: function ($form, event, errors) {},
         submitSuccess: function ($form, event) {
             event.preventDefault();
-
             
             var name = $("input#name").val();
             var email = $("input#email").val();
-            var subject = $("input#subject").val();
+            var date = $("input#date").val();
             var message = $("textarea#message").val();
             var mobile = ($("input#mobile").length) ? $("input#mobile").val() : "noMobile";
-            var status = $("input#userStatus").val(status);
-            
+            var statut = $('input[name="statut"]:checked').val();
+            var logement = $('input[name="logement"]:checked').val();
+            var address = $("input#address").val();
 
             $("#sendMessageButton").prop("disabled", true);
             $("#sendMessageButton span").text("Sending...");
@@ -27,9 +27,11 @@
                     name: name,
                     email: email,
                     mobile: mobile,
-                    subject: subject,
+                    date: date,
                     message: message,
-                    status : status
+                    statut: statut,
+                    logement: logement,
+                    address: address
                 },
                 dataType: "json",
                 cache: false,
@@ -62,7 +64,7 @@
         },
     });
 
-    $('#name, #email, #subject, #message, #status').focus(function () {
+    $('#name, #email, #subject, #message').focus(function () {
         $('#alertMessage').html('');
     });
     
