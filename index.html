@@ -409,47 +409,61 @@
                                 <p>
                                     Quel est votre statut? <span class="obligatoire">*</span>
                                 </p>
-                                <div><label for="proprioBtn">
-                                    <input
-                                            value="Proprietaire"
-                                            id="proprioBtn"
-                                            type="radio"
-                                            name="statut"
-                                    />
-                                    Proprietaire</label>
-                                </div>
-                                <div><label for="locataireBtn">
-                                    <input
-                                            value="Locataire"
-                                            id="locataireBtn"
-                                            type="radio"
-                                            name="statut"
-                                    />
-                                    Locataire</label>
+                                <div class="col-sm-6 control-group">
+                                    <div><label for="proprioBtn">
+                                        <input
+                                                value="Proprietaire"
+                                                id="proprioBtn"
+                                                type="radio"
+                                                name="statut"
+                                                required="required"
+                                                data-validation-required-message="Choisissez un statut"
+                                        />
+                                        Proprietaire</label>
+                                    </div>
+                                    <div><label for="locataireBtn">
+                                        <input
+                                                value="Locataire"
+                                                id="locataireBtn"
+                                                type="radio"
+                                                name="statut"
+                                                required="required"
+                                                data-validation-required-message="Choisissez un statut"
+                                        />
+                                        Locataire</label>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
                                 </div>
                                 <br>
                                 <p>
                                     Quel est votre type de logement? <span class="obligatoire">*</span>
                                 </p>
-                                <div><label for="maisonBtn">
-                                    <input
-                                            value="Maison"
-                                            id="maisonBtn"
-                                            type="radio"
-                                            name="logement"
-                                    />
-                                    Maison</label>
-                                </div>
-                                <div><label for="appartementBtn">
-                                    <input
-                                            value="Appartement"
-                                            id="appartementBtn"
-                                            type="radio"
-                                            name="logement"
-                                    />
-                                    Appartement</label>
-                                </div>
+                                <div class="col-sm-6 control-group">
 
+                                    <div><label for="maisonBtn">
+                                        <input
+                                                value="Maison"
+                                                id="maisonBtn"
+                                                type="radio"
+                                                name="logement"
+                                                required="required"
+                                                data-validation-required-message="Choisissez un type"
+                                        />
+                                        Maison</label>
+                                    </div>
+                                    <div><label for="appartementBtn">
+                                        <input
+                                                value="Appartement"
+                                                id="appartementBtn"
+                                                type="radio"
+                                                name="logement"
+                                                required="required"
+                                                data-validation-required-message="Choisissez un type"
+                                        />
+                                        Appartement</label>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-sm-6 control-group">
@@ -457,7 +471,7 @@
                                                 type="text"
                                                 class="form-control py-2"
                                                 id="name"
-                                                placeholder="Nom et Prénom"
+                                                placeholder="Nom et Prénom*"
                                                 required="required"
                                                 data-validation-required-message="Entrez votre nom et prénom"
                                         />
@@ -468,7 +482,7 @@
                                                 type="email"
                                                 class="form-control py-2"
                                                 id="email"
-                                                placeholder="Email"
+                                                placeholder="Email*"
                                                 required="required"
                                                 data-validation-required-message="Entrez votre mail"
                                         />
@@ -479,7 +493,7 @@
                                                 type="text"
                                                 class="form-control py-2"
                                                 id="mobile"
-                                                placeholder="Mobile"
+                                                placeholder="Mobile*"
                                                 required="required"
                                                 data-validation-required-message="Entrez votre numéro de téléphone"
                                                 pattern="^(?![-. ])[\d().+\- ]{6,14}\d$"
@@ -492,52 +506,86 @@
                                                 type="date"
                                                 class="form-control py-2"
                                                 id="date"
-                                                placeholder="Date"
+                                                placeholder="Date*"
                                                 required="required"
                                                 data-validation-required-message="Entrez votre date de naissance"
                                         />
                                         <p class="help-block text-danger"></p>
                                     </div>
-                                    <div class="col-12 control-group">
-                                        <div class="col-12 control-group">
-                                            <input type="text" class="form-control py-2" id="address" name="address"
-                                                   placeholder="Adresse complète" required="required"
-                                                   data-validation-required-message="Entrez votre adresse complète"/>
-                                            <p class="help-block text-danger"></p>
-                                        </div>
-
-                                        <textarea
-                                                class="form-control"
-                                                rows="4"
-                                                id="message"
-                                                placeholder="Message"
-                                                required="required"
-                                                data-validation-required-message="Please enter your message"
-                                        ></textarea>
+                                    <div class=" control-group">
+                                        <input type="text" class="form-control py-2" id="address" name="address"
+                                               placeholder="Adresse" required="required"
+                                               data-validation-required-message="Entrez votre adresse complète"/>
                                         <p class="help-block text-danger"></p>
                                     </div>
-                                    <div class="col-12">
-                                        <button
-                                                class="btn btn-primary w-100 py-2"
-                                                type="submit"
-                                                id="sendMessageButton"
-                                        >
-                                            <span>Envoyer</span>
-                                            <div
-                                                    class="d-none spinner-border spinner-border-sm text-light ms-3"
-                                                    role="status"
-                                            ></div>
-                                        </button>
+                                    <div class="col-sm-6 control-group">
+                                        <input type="text"
+                                               class="form-control py-2"
+                                               name="cpostal"
+                                               id="cpostal"
+                                               placeholder="Code Postal*"
+                                               required="required"
+                                               data-validation-required-message="Entrez votre code postal"/>
+                                        <div class="help-block text-danger"></div>
+                                    </div>
+                                    <div class="col-sm-6 control-group">
+                                        <input type="text"
+                                               class="form-control py-2"
+                                               name="city"
+                                               id="city"
+                                               placeholder="Ville*"
+                                               required="required"
+                                               data-validation-required-message="Entrez votre ville"/>
+                                        <div class="help-block text-danger"></div>
+                                    </div>
+                                    <div class="control-group mt-3">
+                                    <textarea
+                                            class="form-control"
+                                            rows="4"
+                                            id="message"
+                                            placeholder="Message"
+                                            required="required"
+                                            data-validation-required-message="Please enter your message"
+                                    ></textarea>
+                                        <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                            </form>
+                                <div class="control-group col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input "
+                                               type="checkbox"
+                                               value=""
+                                               id="invalidCheck3"
+                                               required="required"
+                                               data-validation-required-message="Veuillez cocher cette case">
+                                        <label class="form-check-label" for="invalidCheck3">
+                                            Agree to terms and conditions
+                                        </label>
+                                    </div>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-12">
+                                    <button
+                                            class="btn btn-primary w-100 py-2"
+                                            type="submit"
+                                            id="sendMessageButton"
+                                    >
+                                        <span>Envoyer</span>
+                                        <div
+                                                class="d-none spinner-border spinner-border-sm text-light ms-3"
+                                                role="status"
+                                        ></div>
+                                    </button>
+                                </div>
                         </div>
+                        </form>
                     </div>
-                    <!-- Contact Form End -->
                 </div>
+                <!-- Contact Form End -->
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Appointment End -->
