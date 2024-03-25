@@ -10,11 +10,13 @@
             var name = $("input#name").val();
             var email = $("input#email").val();
             var date = $("input#date").val();
-            var message = $("textarea#message").val();
             var mobile = ($("input#mobile").length) ? $("input#mobile").val() : "noMobile";
             var statut = $('input[name="statut"]:checked').val();
             var logement = $('input[name="logement"]:checked').val();
             var address = $("input#address").val();
+            var cpostal = $("input#cpostal").val();
+            var city = $("input#city").val();
+
 
             $("#sendMessageButton").prop("disabled", true);
             $("#sendMessageButton span").text("Sending...");
@@ -28,10 +30,11 @@
                     email: email,
                     mobile: mobile,
                     date: date,
-                    message: message,
                     statut: statut,
                     logement: logement,
-                    address: address
+                    address: address,
+                    cpostal: cpostal,
+                    city: city
                 },
                 dataType: "json",
                 cache: false,
@@ -64,7 +67,7 @@
         },
     });
 
-    $('#name, #email, #subject, #message').focus(function () {
+    $('#name, #email, #subject').focus(function () {
         $('#alertMessage').html('');
     });
     

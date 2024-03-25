@@ -6,12 +6,14 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $mobile = $_POST['mobile'];
 $date = $_POST['date'];
-$message = $_POST['message'];
 
 $statut = isset($_POST['statut']) ? $_POST['statut'] : 'Non spécifié';
 $logement = isset($_POST['logement']) ? $_POST['logement'] : 'Non spécifié';
 
 $address = strip_tags(htmlspecialchars($_POST['address']));
+$cpostal =  $_POST['cpostal'];
+$city = $_POST['city'];
+
 
 // HTML email body
 $htmlBody = "<p>Name: $name</p>";
@@ -21,7 +23,8 @@ $htmlBody .= "<p>Date: $date</p>";
 $htmlBody .= "<p>Statut: $statut</p>";
 $htmlBody .= "<p>Logement: $logement</p>";
 $htmlBody .= "<p>Address: $address</p>";
-$htmlBody .= "<p>Message: $message</p>";
+$htmlBody .= "<p>Code postal: $cpostal</p>";
+$htmlBody .= "<p>Ville: $city</p>";
 
 
 // Plain text email body
@@ -32,7 +35,8 @@ $plainTextBody .= "Date: $date\n";
 $plainTextBody .= "Statut: $statut\n";
 $plainTextBody .= "Logement: $logement\n";
 $plainTextBody .= "Adresse: $address\n";
-$plainTextBody .= $message;
+$plainTextBody .= "Code Postal: $cpostal \n";
+$plainTextBody .= "Ville: $city";
 
 
 // Recipient name. Change this name to your
