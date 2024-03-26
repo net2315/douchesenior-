@@ -63,40 +63,6 @@
         ]
     });
 
-    let sliders = document.querySelectorAll('.slider');
-
-    sliders.forEach(function (slider) {
-        let sliderRange = slider.querySelector('.slider_range');
-        let sliderBefore = slider.querySelector('.slider_before');
-        let sliderSeparator = slider.querySelector('.slider_separator');
-
-        function uptdateSliderPosition() {
-            sliderBefore.style = `width:${sliderRange.value}%`;
-            sliderSeparator.style = `left:${sliderRange.value}%`;
-        }
-
-        sliderRange.addEventListener('input', uptdateSliderPosition);
-
-        let isDragging = false;
-
-        sliderSeparator.addEventListener('mousedown', function () {
-            isDragging = true;
-        })
-
-        document.addEventListener('mouseup', function () {
-            isDragging = false;
-        })
-
-        document.addEventListener('mousemove', function (e) {
-            if (isDragging) {
-                let sliderRect = slider.getBoundingClientRect();
-                let newWidth = (e.clientX - sliderRect.left) /
-                    sliderRect.width * 100;
-                sliderRange.value = newWidth;
-                uptdateSliderPosition();
-            }
-        })
-    });
 
     let sliders1 = document.querySelectorAll('.slider');
 
@@ -105,33 +71,59 @@
         let sliderBefore1 = slider.querySelector('.slider_before1');
         let sliderSeparator = slider.querySelector('.slider_separator');
 
-        function uptdateSliderPosition() {
-            sliderBefore1.style = `width:${sliderRange.value}%`;
-            sliderSeparator.style = `left:${sliderRange.value}%`;
+        function updateSliderPosition() {
+            sliderBefore1.style.width = sliderRange.value + '%';
+            sliderSeparator.style.left = sliderRange.value + '%';
         }
 
-        sliderRange.addEventListener('input', uptdateSliderPosition);
+        function handleSliderSeparatorMouseDown() {
+            isDragging = true;
+        }
+
+        function handleDocumentMouseUp() {
+            isDragging = false;
+        }
+
+        function handleDocumentMouseMove(e) {
+            if (isDragging) {
+                let sliderRect = slider.getBoundingClientRect();
+                let newWidth = (e.clientX - sliderRect.left) / sliderRect.width * 100;
+                sliderRange.value = newWidth;
+                updateSliderPosition();
+            }
+        }
+
+        function handleSliderSeparatorTouchStart() {
+            isDragging = true;
+        }
+
+        function handleDocumentTouchEnd() {
+            isDragging = false;
+        }
+
+        function handleDocumentTouchMove(e) {
+            if (isDragging) {
+                let sliderRect = slider.getBoundingClientRect();
+                let touch = e.touches[0];
+                let newWidth = (touch.clientX - sliderRect.left) / sliderRect.width * 100;
+                sliderRange.value = newWidth;
+                updateSliderPosition();
+            }
+        }
+
+        sliderRange.addEventListener('input', updateSliderPosition);
 
         let isDragging = false;
 
-        sliderSeparator.addEventListener('mousedown', function () {
-            isDragging = true;
-        })
+        sliderSeparator.addEventListener('mousedown', handleSliderSeparatorMouseDown);
+        document.addEventListener('mouseup', handleDocumentMouseUp);
+        document.addEventListener('mousemove', handleDocumentMouseMove);
 
-        document.addEventListener('mouseup', function () {
-            isDragging = false;
-        })
-
-        document.addEventListener('mousemove', function (e) {
-            if (isDragging) {
-                let sliderRect = slider.getBoundingClientRect();
-                let newWidth = (e.clientX - sliderRect.left) /
-                    sliderRect.width * 100;
-                sliderRange.value = newWidth;
-                uptdateSliderPosition();
-            }
-        })
+        sliderSeparator.addEventListener('touchstart', handleSliderSeparatorTouchStart);
+        document.addEventListener('touchend', handleDocumentTouchEnd);
+        document.addEventListener('touchmove', handleDocumentTouchMove);
     });
+
 
 
     function onSubmit(token) {
