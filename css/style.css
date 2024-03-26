@@ -395,7 +395,7 @@
 }
 
 .page-header {
-    background: url(../img/carousel6.jpeg) center center no-repeat;
+    background: url(../img/carousel6.png) center center no-repeat;
     background-size: cover;
 }
 
@@ -451,7 +451,7 @@
 }
 
 .container.facts .facts-text {
-    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.jpeg) center right no-repeat;
+    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.png) center right no-repeat;
     background-size: cover;
 }
 
@@ -502,7 +502,7 @@
 
 /*** Appointment ***/
 .appointment {
-    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.jpeg) center center no-repeat;
+    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.png) center center no-repeat;
     background-size: cover;
 }
 
