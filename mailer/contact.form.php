@@ -1,5 +1,4 @@
 <?php
-error_log(print_r($_POST, true));
 
 // Mailer form data
 $name = $_POST['name'];
