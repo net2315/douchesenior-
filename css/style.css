@@ -6,6 +6,11 @@
     --dark: #15233C;
 }
 
+@media print {
+    .container {
+        width: auto;
+    }
+}
 
 #contactForm .help-block ul {
     margin: 0;
