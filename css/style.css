@@ -388,7 +388,7 @@
 }
 
 .page-header {
-    background: url(../img/carousel6.png) center center no-repeat;
+    background: url(../img/carousel6.webp) center center no-repeat;
     background-size: cover;
 }
 
@@ -444,12 +444,12 @@
 }
 
 .container.facts .facts-text {
-    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.png) center right no-repeat;
+    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.webp) center right no-repeat;
     background-size: cover;
 }
 
 .container.facts .facts-counter {
-    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), url(../img/carousel5.jpg) center right no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), url(../img/carousel5.webp) center right no-repeat;
     background-size: cover;
 }
 
@@ -495,7 +495,7 @@
 
 /*** Appointment ***/
 .appointment {
-    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.png) center center no-repeat;
+    background: linear-gradient(rgba(1, 95, 201, .9), rgba(1, 95, 201, .9)), url(../img/carousel6.webp) center center no-repeat;
     background-size: cover;
 }
 
